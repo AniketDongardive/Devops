@@ -14,8 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                bat 'javac program.java'
-                bat 'java program'
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'WebPage.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
                 echo 'Deploying...'
             }
         }
